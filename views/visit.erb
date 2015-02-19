@@ -1,0 +1,37 @@
+<h1>Записаться</h1>
+<% if @message %>
+<p class="<%= @message[:class]%>"><%= @message[:message]%></p>
+<% end%>
+<form role="form" action="/visit" method="POST">
+  <div class="form-group">
+    <label>Введите ваше имя</label>
+    <input type="text" class="form-control" name="name" placeholder="Ваше имя">
+  </div>
+  <div class="form-group"><label for="">Введите номер телефона</label><input type="text" class="form-control" name="phone" placeholder="Номер телефона"></div>
+  <div class="form-group">
+    <label for="">Выберите парекмахера</label>
+    <select class="form-control" name="barber">
+      <%= render_partial :option %>
+    </select>
+  </div>
+  <div class="form-group"><label for="">Введите дату и время</label><input type="text" class="form-control" 
+  name="datestamp" placeholder="Дата и время"></div>
+  <div class="form-group">
+    <label for="">В какие цвета красить</label>
+    <select id="colorpicker" name="color">
+      <option value="#7bd148">Green</option>
+      <option value="#5484ed">Bold blue</option>
+      <option value="#a4bdfc">Blue</option>
+      <option value="#46d6db">Turquoise</option>
+      <option value="#7ae7bf">Light green</option>
+      <option value="#51b749">Bold green</option>
+      <option value="#fbd75b">Yellow</option>
+      <option value="#ffb878">Orange</option>
+      <option value="#ff887c">Red</option>
+      <option value="#dc2127">Bold red</option>
+      <option value="#dbadff">Purple</option>
+      <option value="#e1e1e1">Gray</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Записаться</button>
+</form>
