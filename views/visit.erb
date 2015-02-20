@@ -5,20 +5,20 @@
 <form role="form" action="/visit" method="POST">
   <div class="form-group">
     <label>Введите ваше имя</label>
-    <input type="text" class="form-control" name="name" placeholder="Ваше имя">
+    <input type="text" class="form-control" name="client[name]" placeholder="Ваше имя">
   </div>
-  <div class="form-group"><label for="">Введите номер телефона</label><input type="text" class="form-control" name="phone" placeholder="Номер телефона"></div>
+  <div class="form-group"><label for="">Введите номер телефона</label><input type="text" class="form-control" name="client[phone]" placeholder="Номер телефона"></div>
   <div class="form-group">
     <label for="">Выберите парекмахера</label>
-    <select class="form-control" name="barber">
+    <select class="form-control" name="client[barber]">
       <%= render_partial :option %>
     </select>
   </div>
   <div class="form-group"><label for="">Введите дату и время</label><input type="text" class="form-control" 
-  name="datestamp" placeholder="Дата и время"></div>
+  name="client[datestamp]" placeholder="Дата и время"></div>
   <div class="form-group">
     <label for="">В какие цвета красить</label>
-    <select id="colorpicker" name="color">
+    <select id="colorpicker" name="client[color]">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>
@@ -35,3 +35,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Записаться</button>
 </form>
+
+<%# if Client.any? %>
+  <%= @client.name %>
+<%# end %>
