@@ -42,7 +42,7 @@ post '/visit' do
   end
 end
 
-get '/barber/:barber_id' do
+get '/barbers/:barber_id' do
   @barber = Barber.find params[:barber_id]
   erb :barber
 end
