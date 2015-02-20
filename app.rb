@@ -25,7 +25,7 @@ get '/' do
 end
 
 get '/visit' do
-  @client = Client.find(3)
+  @c= Client.new
   @barbers = Barber.order "created_at DESC"
   erb :visit
 end
@@ -40,4 +40,9 @@ post '/visit' do
     @error = @c.errors.full_messages.first
     erb :visit
   end
+end
+
+get '/barber/:barber_id' do
+  @barber = Barber.find params[:barber_id]
+  erb :barber
 end
