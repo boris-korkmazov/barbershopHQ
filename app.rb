@@ -33,11 +33,11 @@ end
 post '/visit' do
   @barbers = Barber.order "created_at DESC"
   
-  c = Client.new params[:client]
-  if c.save
+  @c = Client.new params[:client]
+  if @c.save
     erb "<h2>Вы записались</h2>"
   else
-    @error = c.errors.full_messages.first
+    @error = @c.errors.full_messages.first
     erb :visit
   end
 end
